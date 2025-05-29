@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Imagen de perfil -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="8dp">
+
+            <ImageView
+                android:id="@+id/img_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_avatar"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Saludo -->
+        <TextView
+            android:id="@+id/tv_saludo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¡Hola, Usuario!"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Mensaje motivacional -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginHorizontal="8dp">
+
+            <TextView
+                android:id="@+id/tv_mensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¡Recuerda tomar tus medicamentos a tiempo!"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:gravity="center"
+                android:padding="20dp"
+                android:lineSpacingExtra="4dp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón Ver Medicamentos -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <Button
+                android:id="@+id/btn_medicamentos"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Ver mis medicamentos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/button_primary"
+                android:textColor="@android:color/white"
+                android:drawableLeft="@drawable/ic_medication"
+                android:drawablePadding="12dp"
+                android:gravity="center" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón Configuraciones -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <Button
+                android:id="@+id/btn_configuraciones"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Configuraciones"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:drawableLeft="@drawable/ic_settings"
+                android:drawablePadding="12dp"
+                android:gravity="center" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Información adicional -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Toca tu foto para cambiarla"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:alpha="0.8" />
+
+    </LinearLayout>
+
+</ScrollView>

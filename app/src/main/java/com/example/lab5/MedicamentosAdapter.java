@@ -18,10 +18,18 @@ public class MedicamentosAdapter extends RecyclerView.Adapter<MedicamentosAdapte
     private List<Medicamento> listaMedicamentos;
     private OnMedicamentoClickListener listener;
 
+    public MedicamentosAdapter(List<Medicamento> listaMedicamentos, OnMedicamentoClickListener listener) {
+        this.listaMedicamentos = listaMedicamentos;
+        this.listener = listener;
+    }
+
     // Interface para manejar clicks en los items
     public interface OnMedicamentoClickListener {
         void onMedicamentoClick(Medicamento medicamento, int position);
         void onMedicamentoLongClick(Medicamento medicamento, int position);
+
+        void onClick(Medicamento medicamento);
+
     }
 
     public MedicamentosAdapter(Context context, List<Medicamento> listaMedicamentos) {
@@ -114,7 +122,7 @@ public class MedicamentosAdapter extends RecyclerView.Adapter<MedicamentosAdapte
 
             // Formato de fecha y hora
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
-            String fechaHora = sdf.format(medicamento.getFechaHoraInicio());
+            String fechaHora = sdf.format(medicamento.getFechaInicio());
             tvFechaHoraInicio.setText("Inicio: " + fechaHora);
         }
     }

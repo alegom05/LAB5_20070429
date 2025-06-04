@@ -1,4 +1,4 @@
-package com.example.medicamentos;
+package com.example.lab5;
 
 import android.Manifest;
 import android.content.Intent;
@@ -20,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.lab5.ConfiguracionActivity;
+import com.example.lab5.MedicamentosActivity;
 import com.example.lab5.R;
 
 import java.io.File;

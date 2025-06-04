@@ -21,6 +21,7 @@ public class MedicamentosActivity extends AppCompatActivity {
     private MedicamentosAdapter adapter;
     private List<Medicamento> listaMedicamentos;
     private FloatingActionButton fabAgregar;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MedicamentosActivity extends AppCompatActivity {
     private void initViews() {
         recyclerView = findViewById(R.id.recycler_medicamentos);
         fabAgregar = findViewById(R.id.fab_agregar);
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        databaseHelper = new DatabaseHelper(this);
 
         // Configurar toolbar
         if (getSupportActionBar() != null) {
@@ -47,7 +48,31 @@ public class MedicamentosActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         listaMedicamentos = new ArrayList<>();
-        adapter = new MedicamentosAdapter(listaMedicamentos, this::onMedicamentoClick);
+
+        // Create the click listener
+        MedicamentosAdapter.OnMedicamentoClickListener listener = new MedicamentosAdapter.OnMedicamentoClickListener() {
+            @Override
+            public void onMedicamentoClick(Medicamento medicamento, int position) {
+
+            }
+
+            @Override
+            public void onMedicamentoLongClick(Medicamento medicamento, int position) {
+
+            }
+
+            @Override
+            public void onClick(Medicamento medicamento) {
+
+            }
+
+            public void onMedicamentoClick(Medicamento medicamento) {
+                MedicamentosActivity.this.onMedicamentoClick(medicamento);
+            }
+        };
+
+        // Initialize adapter with the list and listener
+        adapter = new MedicamentosAdapter(listaMedicamentos, listener);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -71,7 +96,8 @@ public class MedicamentosActivity extends AppCompatActivity {
     }
 
     private void onMedicamentoClick(Medicamento medicamento) {
-        Intent intent = new Intent(MedicamentosActivity.this, MedicamentosAdapter.class);
+        // Fixed: Should navigate to a detail activity, not to the adapter class
+        Intent intent = new Intent(MedicamentosActivity.this, AgregarMedicamentoActivity.class);
         intent.putExtra("medicamento_id", medicamento.getId());
         startActivity(intent);
     }
